@@ -16,15 +16,16 @@ library(tidyverse)
 
 ```{r}
 spain <- read_csv("https://pollofpolls.eu/get/polls/ES-parliament/format/csv")
-glimpse(spain)
-summary(spain)
 
 good_firms <- spain %>%
   group_by(firm) %>%
   count() %>%
-  filter(n >= 40) 
-good_firms
+  filter(n >= 40) %>% 
+  pull(firm)
 
-
-filter(firm %in% c("Invymark", "Celeste-Tel", "Simple Lógica", "NC Report", "Metroscopia", "GAD3", "Sigma Dos"))
+data_to_plot <- spain %>% 
+  filter(firm %in% good_firms, 
+         date >= "2018-01-05", 
+         date <= "2018-12-27")
 ```
+
