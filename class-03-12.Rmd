@@ -15,7 +15,16 @@ library(tidyverse)
 ```
 
 ```{r}
-hungary <-read_csv("polls_HU-parliament_2019-03-12.csv")
+spain <- read_csv("https://pollofpolls.eu/get/polls/ES-parliament/format/csv")
+glimpse(spain)
+summary(spain)
 
-data_to_plot <- hungary
+good_firms <- spain %>%
+  group_by(firm) %>%
+  count() %>%
+  filter(n >= 40) 
+good_firms
+
+
+filter(firm %in% c("Invymark", "Celeste-Tel", "Simple Lógica", "NC Report", "Metroscopia", "GAD3", "Sigma Dos"))
 ```
