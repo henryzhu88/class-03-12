@@ -1,12 +1,21 @@
 ---
-title: "class-03-12"
-author: "Henry Zhu"
+title: "Class 03/12"
+author: "Henry Zhu and Céline Vendler"
 date: "March 12, 2019"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE, 
+                      message = FALSE,
+                      error = FALSE, 
+                      warning = FALSE)
+
+library(tidyverse)
 ```
+
+```{r}
 hungary <-read_csv("polls_HU-parliament_2019-03-12.csv")
 
+data_to_plot <- hungary
+```
